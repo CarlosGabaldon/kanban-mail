@@ -11,15 +11,13 @@
   Copyright (c) 2012 Carlos Gabaldon <carlosgabaldon.com>, Yellow Shovel, LLC <yellowshovel.com>
 
 
-  Built With:
+= Built With:
   Ruby 1.9.3:       http://www.ruby-lang.org/en/
   Rails 3.2.3:      http://rubyonrails.org/
   Haml:             http://haml.hamptoncatlin.com/
-  Homebrew:   http://mxcl.github.com/homebrew/
-  RVM:        https://rvm.io/
-  Cucumber:   http://cukes.info/ 
-  
-  Deployed To:
+  Homebrew:         http://mxcl.github.com/homebrew/
+  RVM:              https://rvm.io/
+  Cucumber:         http://cukes.info/ 
   Heroku:           https://api.heroku.com/myapps/kanbanmail
 
 = SETUP
