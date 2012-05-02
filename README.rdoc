@@ -1,0 +1,90 @@
+= KanbanMail
+
+=== How does KanbanMail work?
+
+   1. Get your new items (mail).
+   2. Review new items to determine next step.
+   3. Move new item to Action, Hold, or Completed queue.
+   4. Review Action and Hold items on regular candence.
+   5. Repeat steps 1 - 4 until items are complete.
+
+  Copyright (c) 2012 Carlos Gabaldon <carlosgabaldon.com>, Yellow Shovel, LLC <yellowshovel.com>
+
+
+  Built With:
+  Ruby 1.9.3:       http://www.ruby-lang.org/en/
+  Rails 3.2.3:      http://rubyonrails.org/
+  Haml:             http://haml.hamptoncatlin.com/
+  Homebrew:   http://mxcl.github.com/homebrew/
+  RVM:        https://rvm.io/
+  Cucumber:   http://cukes.info/ 
+  
+  Deployed To:
+  Heroku:           https://api.heroku.com/myapps/kanbanmail
+
+= SETUP
+  
+== RUBY w/ RVM
+  $ bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
+  $ source ~/.bash_profile
+  $ rvm requirements
+  $ rvm install ruby-1.9.3 --with-openssl-dir=/opt/local --with-iconv-dir=$rvm_path/usr
+  $ rvm use ruby-1.9.3-p0 --default
+  
+  
+== Homebrew
+
+  $ /usr/bin/ruby -e "$(/usr/bin/curl -fksSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
+  
+  
+== POSTGRESQL
+
+  $ brew install postgresql
+  $ brew info postgresql
+  $ initdb /usr/local/var/postgres
+  $ mate .bash_login # add export PATH=/usr/local/bin:$PATH
+  $ source .bash_login
+  $ which psql
+    /usr/local/bin/psql
+  $ createdb kanbanmail
+  $ psql kanbanmail
+    psql (9.1.3)
+    Type "help" for help.
+    kanbanmail=# \q
+  $ createuser -P -s -e kanbanmail_app
+  $ env ARCHFLAGS="-arch x86_64" gem install pg
+
+== GEMS
+  $ sudo gem install bundler
+  $ bundle install
+
+
+== TEXTMATE
+  $ cd /Applications/TextMate.app/Contents/SharedSupport/Bundles
+  $ svn co "http://svn.textmate.org/trunk/Bundles/Ruby%20Haml.tmbundle"
+  $ git clone git://github.com/cucumber/cucumber-tmbundle.git Cucumber.tmbundle
+  $ git clone git://github.com/rspec/rspec-tmbundle.git RSpec.tmbundle
+  $ osascript -e 'tell app "TextMate" to reload bundles'
+
+
+= DEV
+
+  $ rake db:migrate db:test:prepare # rake db:drop 
+  $ rake db:seed
+  $ rake cucumber
+  $ rails s
+  $ open http://0.0.0.0:3000/
+
+
+= PROD
+  
+  $ git push heroku master
+  $ heroku rake db:migrate
+  $ heroku domains:add www.kanbanmail.com 
+  $ open https://manage.www.namecheap.com/myaccount/index.asp
+    - Update DNS CNAME => kanbanmail.heroku.com
+  $ heroku logs --tail
+  $ open http://kanbanmail.heroku.com/
+  $ open http://www.kanbanmail.com
+ 
+
