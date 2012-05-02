@@ -11,7 +11,7 @@
   Copyright (c) 2012 Carlos Gabaldon <carlosgabaldon.com>, Yellow Shovel, LLC <yellowshovel.com>
 
 
-= Built With:
+=== Built With:
   Ruby 1.9.3:       http://www.ruby-lang.org/en/
   Rails 3.2.3:      http://rubyonrails.org/
   Haml:             http://haml.hamptoncatlin.com/
@@ -20,9 +20,9 @@
   Cucumber:         http://cukes.info/ 
   Heroku:           https://api.heroku.com/myapps/kanbanmail
 
-= SETUP
+== SETUP
   
-== RUBY w/ RVM
+=== RUBY w/ RVM
   $ bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
   $ source ~/.bash_profile
   $ rvm requirements
@@ -30,12 +30,12 @@
   $ rvm use ruby-1.9.3-p0 --default
   
   
-== Homebrew
+=== Homebrew
 
   $ /usr/bin/ruby -e "$(/usr/bin/curl -fksSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
   
   
-== POSTGRESQL
+=== POSTGRESQL
 
   $ brew install postgresql
   $ brew info postgresql
@@ -52,12 +52,12 @@
   $ createuser -P -s -e kanbanmail_app
   $ env ARCHFLAGS="-arch x86_64" gem install pg
 
-== GEMS
+=== GEMS
   $ sudo gem install bundler
   $ bundle install
 
 
-== TEXTMATE
+=== TEXTMATE
   $ cd /Applications/TextMate.app/Contents/SharedSupport/Bundles
   $ svn co "http://svn.textmate.org/trunk/Bundles/Ruby%20Haml.tmbundle"
   $ git clone git://github.com/cucumber/cucumber-tmbundle.git Cucumber.tmbundle
@@ -65,7 +65,7 @@
   $ osascript -e 'tell app "TextMate" to reload bundles'
 
 
-= DEV
+=== DEV
 
   $ rake db:migrate db:test:prepare # rake db:drop 
   $ rake db:seed
@@ -74,7 +74,7 @@
   $ open http://0.0.0.0:3000/
 
 
-= PROD
+=== PROD
   
   $ git push heroku master
   $ heroku rake db:migrate
