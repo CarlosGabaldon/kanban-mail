@@ -86,3 +86,20 @@
   $ open http://www.kanbanmail.com
  
 
+ 
+= Setting up a new Rails app
+
+  $ rails new kanban-mail --skip-test-unit
+  $ cd ./kanban-mail
+  $ git init
+  $ mate Gemfile
+    +# Specification by Example: https://github.com/cucumber/cucumber-rails
+    +group :test do
+    +  gem 'cucumber-rails'
+    +  gem 'database_cleaner'
+    +  gem 'rspec-rails'
+    +  gem 'factory_girl'
+    +end
+  $ rails generate cucumber:install
+  $ git add .
+
