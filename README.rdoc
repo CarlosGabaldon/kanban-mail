@@ -86,7 +86,6 @@
   $ open http://www.kanbanmail.com
  
 
- 
 = Setting up a new Rails app
 
   $ rails new kanban-mail --skip-test-unit
