@@ -9,5 +9,7 @@ When /^they vist the new item list page$/ do
 end
 
 Then /^they should see the following item subjects:$/ do |items|
-   page.should have_content(items.raw)
+  items.raw.each do |item|
+    page.should have_content(item)
+  end
 end
