@@ -9,9 +9,11 @@
 
 user = User.create(:email => 'elephant@jungle.com')
 
-weekly_status = Item.new(:subject => "Weekly Status Report for 5/10/3012")
+weekly_status = Item.new(:subject => "Weekly Status Report for 5/10/3012",
+                         :queue => "new")
 weekly_status.save
-sales_figures = Item.new(:subject => "Year end sales figures for year end 3011")
+sales_figures = Item.new(:subject => "Year end sales figures for year end 3011",
+                         :queue => "action")
 sales_figures.save
 
 user.items << weekly_status
