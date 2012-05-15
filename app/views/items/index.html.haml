@@ -1,24 +1,25 @@
 #container
   #header
-    %p header
+    %h1 Kanban Mail
+
   #primary
-    %h New
-    %ul
+    %h2 New (#{@items.count})
+    %ol
       - @items.each do |item|
         %li #{item.subject} - #{item.queue}
   #content
-    %h Action
-    %ul
+    %h2 Action (#{@items.count})
+    %ol
       - @items.each do |item|
         %li #{item.subject} - #{item.queue}
     %hr
-    %h Hold
-    %ul
+    %h2 Hold (#{@items.count})
+    %ol
       - @items.each do |item|
         %li #{item.subject} - #{item.queue}
   #secondary
-    %h Done
-    %ul
+    %h2 Done (#{@items.count})
+    %ol
       - @items.each do |item|
         %li #{item.subject} - #{item.queue}
   #footer
