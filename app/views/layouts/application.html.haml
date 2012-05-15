@@ -7,10 +7,9 @@
     = csrf_meta_tags
   
   %body
-    #content
-      %p{:class => "notice"} 
-        =notice
-      %p{:class => "alert"} 
-        =alert
-      =yield
+    %p{:class => "notice"} 
+      =notice
+    %p{:class => "alert"} 
+      =alert
+    =yield
 

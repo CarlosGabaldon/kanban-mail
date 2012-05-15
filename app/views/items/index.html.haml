@@ -1,5 +1,29 @@
-%h Items
-%ul
-  - @items.each do |item|
-    %li #{item.subject} - #{item.queue}  
+#container
+  #header
+    %p header
+  #primary
+    %h New
+    %ul
+      - @items.each do |item|
+        %li #{item.subject} - #{item.queue}
+  #content
+    %h Action
+    %ul
+      - @items.each do |item|
+        %li #{item.subject} - #{item.queue}
+    %hr
+    %h Hold
+    %ul
+      - @items.each do |item|
+        %li #{item.subject} - #{item.queue}
+  #secondary
+    %h Done
+    %ul
+      - @items.each do |item|
+        %li #{item.subject} - #{item.queue}
+  #footer
+    %p footer
+
+    
+
 
