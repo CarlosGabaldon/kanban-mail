@@ -5,7 +5,7 @@ Feature: View item detail
     When they click on the item <Permalink> in the item list page
     Then they will see the item <Body>
     
-    Examples: Items
+    Examples: Items 
       | Permalink                           | Subject                  | Queue  | Body                                       |
       | quarter-end-sales-results-2012-05-15| Quarter end sales results| new    | This is the ending sales numbers for 2012  |
       | top-sales-figures-2012-05-10        | Top Sales Figures        | action | Please review the sales numbers            |
