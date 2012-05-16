@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120516071352) do
+ActiveRecord::Schema.define(:version => 20120516074919) do
 
   create_table "items", :force => true do |t|
     t.integer  "user_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20120516071352) do
     t.datetime "updated_at", :null => false
     t.string   "queue"
     t.string   "permalink"
+    t.string   "body"
   end
 
   create_table "users", :force => true do |t|

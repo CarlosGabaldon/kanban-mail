@@ -11,7 +11,8 @@
     %h2 Action (#{@items.count})
     %ol
       - @items.each do |item|
-        %li #{item.subject} - #{item.queue}
+        %li 
+          =link_to "#{item.subject}", item_path(item), :method => :get
     %hr
     %h2 Hold (#{@items.count})
     %ol
