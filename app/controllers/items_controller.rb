@@ -6,4 +6,10 @@ class ItemsController < ApplicationController
     @items = @user.items
     respond_with @items
   end
+  
+  def show
+    @user = User.find(User.first)
+    @item = @user.items.find(params[:id])
+    respond_with @item
+  end
 end
