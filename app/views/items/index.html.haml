@@ -1,30 +1,20 @@
-#container
-  #header
-    %h1 Kanban Mail
+#primary
+  %h2 New (#{@new_items.count})
+  %ol
+    = render(@new_items)
+#content
+  %h2 Action (#{@action_items.count})
+  %ol
+    = render(@action_items)
 
-  #primary
-    %h2 New (#{@items.count})
-    %ol
-      - @items.each do |item|
-        %li #{item.subject} - #{item.queue}
-  #content
-    %h2 Action (#{@items.count})
-    %ol
-      - @items.each do |item|
-        %li 
-          =link_to "#{item.subject}", item_path(item), :method => :get
-    %hr
-    %h2 Hold (#{@items.count})
-    %ol
-      - @items.each do |item|
-        %li #{item.subject} - #{item.queue}
-  #secondary
-    %h2 Done (#{@items.count})
-    %ol
-      - @items.each do |item|
-        %li #{item.subject} - #{item.queue}
-  #footer
-    %p footer
+  %hr
+  %h2 Hold (#{@hold_items.count})
+  %ol
+    = render(@hold_items)
+#secondary
+  %h2 Done (#{@completed_items.count})
+  %ol
+    = render(@completed_items)
 
     
 

@@ -15,11 +15,18 @@ weekly_status = Item.new(:permalink => "weekly-status-report-2012-05-15",
                          :body => "This is the weekly status report")
 weekly_status.save
 sales_figures = Item.new(:permalink => "year-end-sales-figures",
+
                          :subject => "Year end sales figures",
                          :queue => "action",
                          :body => "This is the year end sales figures")
 sales_figures.save
 
+oscon = Item.new(:permalink => "OSCON 2013",
+                         :subject => "OSCON 2013 Registration Begins",
+                         :queue => "action",
+                         :body => "This will be a great year for OSCON")
+oscon.save
 user.items << weekly_status
 user.items << sales_figures
+user.items << oscon
 user.save

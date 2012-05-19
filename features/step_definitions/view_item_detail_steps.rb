@@ -11,7 +11,7 @@ Given /^the user has an item with the with the following:$/ do |items|
   end
 end
 
-When /^they click on the item "([^"]*)" in the item list page$/ do |permalink|
+When /^they click on the item permalink "([^"]*)" in the item list page$/ do |permalink|
   user = User.find_by_email('example@example.com')
   item = user.items.find_by_permalink(permalink)
   visit(item_path(item))

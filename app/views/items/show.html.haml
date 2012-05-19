@@ -1,2 +1,13 @@
-%h1 #{@item.subject}
-%p= @item.body
+#content
+  %h1 #{@item.subject}
+  %form{:action => "#{@path}", :method => 'post'}
+    %select{:name => 'item_queue'}
+      -@item_queues.each do |queue|
+        -if(@item.queue == queue) 
+          %option{:value => "#{queue}", :selected => 'selected'}
+            =queue.capitalize
+        -else
+          %option{:value => "#{queue}"}
+            =queue.capitalize
+    %input{:type => 'submit', :value => 'Move'}
+  %p= @item.body

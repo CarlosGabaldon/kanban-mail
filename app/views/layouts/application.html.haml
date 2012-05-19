@@ -7,9 +7,13 @@
     = csrf_meta_tags
   
   %body
-    %p{:class => "notice"} 
-      =notice
-    %p{:class => "alert"} 
-      =alert
-    =yield
+    %p{:class => "notice"}=notice
+    %p{:class => "alert"}=alert
+    #container
+      =render(:partial => 'shared/header')
+  
+      =yield
+      
+      =render(:partial => 'shared/footer')
+      
 
