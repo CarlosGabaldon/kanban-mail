@@ -1,5 +1,6 @@
 #content
   %h1 #{@item.subject}
+  = link_to "<< Back", items_path 
   = form_for @item do |f|
     = f.label(:queue, 'Move to:')
     = f.select(:queue, options_for_select(@item_queues, @item.queue))
@@ -7,3 +8,4 @@
     = f.date_select(:due_date, :use_month_numbers => true)
     = f.submit("Move")
   %p= @item.body
+  
