@@ -17,11 +17,7 @@ When /^they vist the item list page$/ do
 end
 
 Then /^they should see the following item subjects:$/ do |items|
-  
   items.raw.flatten.each do |item|
     page.should have_content(item)
   end
-  
-  #puts page.html
-  #pending
 end
