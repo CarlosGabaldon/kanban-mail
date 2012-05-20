@@ -1,8 +1,12 @@
-And /^they choose "([^"]*)" from the drop down list$/ do |queue|
+When /^they choose "([^"]*)" from the drop down list$/ do |queue|
   select(queue, :from => 'item_queue')
 end
 
-And /^they click the "([^"]*)" button$/ do |name|
+When /^they choose due on "([^"]*)" from the drop down list$/ do |due_date|
+  select_date(due_date, :from => 'item_due_date')
+end
+
+When /^they click the "([^"]*)" button$/ do |name|
   click_button(name)
 end
 

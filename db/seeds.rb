@@ -22,11 +22,19 @@ sales_figures = Item.new(:permalink => "year-end-sales-figures",
 sales_figures.save
 
 oscon = Item.new(:permalink => "OSCON 2013",
-                         :subject => "OSCON 2013 Registration Begins",
-                         :queue => "action",
-                         :body => "This will be a great year for OSCON")
+                 :subject => "OSCON 2013 Registration Begins",
+                 :queue => "action",
+                 :body => "This will be a great year for OSCON")
 oscon.save
+
+amazon = Item.new(:permalink => "amazon.com-digital-no-reply-amazon-com-2012-05-15",
+                 :subject => "Amazon.com <digital-no-reply@amazon.com>",
+                 :queue => "new",
+                 :body => "Amazon Order..")
+amazon.save
+
 user.items << weekly_status
 user.items << sales_figures
 user.items << oscon
+user.items << amazon
 user.save
