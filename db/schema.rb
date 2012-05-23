@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120520153607) do
+ActiveRecord::Schema.define(:version => 20120523054042) do
 
   create_table "items", :force => true do |t|
     t.integer  "user_id"
@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(:version => 20120520153607) do
     t.string   "permalink"
     t.string   "body"
     t.datetime "due_date"
+    t.datetime "sent"
+    t.string   "from"
+    t.string   "to"
+    t.string   "cc"
+    t.string   "bcc"
   end
 
   create_table "users", :force => true do |t|

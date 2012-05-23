@@ -10,7 +10,7 @@ When /^they click the "([^"]*)" button$/ do |name|
   click_button(name)
 end
 
-Then /^they should be redirected to the item list page and see "([^"]*)" moved to the action queue$/ do |item|
-  page.should have_content(item)
+Then /^they should be redirected to the item list page to see item moved to action queue$/ do
+  item = @user.items.find_by_permalink('amazon_com-12-05-04')
+  page.should have_content(item.subject)
 end
-
