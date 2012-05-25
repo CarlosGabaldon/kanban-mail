@@ -28,7 +28,7 @@ module Gmail
         recent_mail.each do |mail|
           item = Hash.new
         
-          item[:date] = mail.date 
+          item[:sent] = mail.date 
           item[:from] = (mail.from || []).join(',')
           item[:to] = (mail.to || []).join(',') 
           item[:cc] = (mail.cc || []).join(',')
