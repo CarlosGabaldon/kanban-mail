@@ -11,25 +11,25 @@ user = User.create(:email => 'elephant@jungle.com')
 
 weekly_status = Item.new(:permalink => "weekly-status-report-2012-05-15",
                          :subject => "Weekly Status Report",
-                         :queue => "new",
+                         :queue => "NEW",
                          :body => "This is the weekly status report")
 weekly_status.save
 sales_figures = Item.new(:permalink => "year-end-sales-figures",
 
                          :subject => "Year end sales figures",
-                         :queue => "action",
+                         :queue => "ACTION",
                          :body => "This is the year end sales figures")
 sales_figures.save
 
 oscon = Item.new(:permalink => "OSCON 2013",
                  :subject => "OSCON 2013 Registration Begins",
-                 :queue => "action",
+                 :queue => "ACTION",
                  :body => "This will be a great year for OSCON")
 oscon.save
 
 amazon = Item.new(:permalink => "amazon.com-digital-no-reply-amazon-com-2012-05-15",
                  :subject => "Amazon.com <digital-no-reply@amazon.com>",
-                 :queue => "new",
+                 :queue => "NEW",
                  :body => "Amazon Order..")
 amazon.save
 

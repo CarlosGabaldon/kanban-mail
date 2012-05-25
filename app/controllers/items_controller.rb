@@ -3,11 +3,11 @@ class ItemsController < ApplicationController
   
   def index
     @user = User.find(User.first)
-    @new_items = @user.items.where({:queue => "new"}).all
-    @action_items = @user.items.where({:queue => "action"}).all
-    @hold_items = @user.items.where({:queue => "hold"}).all
-    @completed_items = @user.items.where({:queue => "completed"}).all
-    respond_with(@new_items, @action_items, @hold_items, @completed_items)
+    @new_items = @user.items.where({:queue => "NEW"}).all
+    @action_items = @user.items.where({:queue => "ACTION"}).all
+    @hold_items = @user.items.where({:queue => "HOLD"}).all
+    @done_items = @user.items.where({:queue => "DONE"}).all
+    respond_with(@new_items, @action_items, @hold_items, @done_items)
   end
   
   def show

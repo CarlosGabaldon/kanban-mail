@@ -7,7 +7,7 @@ class Item < ActiveRecord::Base
   belongs_to :user
   class << self
     def queues
-      ['new', 'action', 'hold', 'completed']
+      ['NEW', 'ACTION', 'HOLD', 'DONE']
     end
     
     def load_sources klass = ::Gmail::Client
@@ -18,7 +18,7 @@ class Item < ActiveRecord::Base
         create_params = {
           :subject      => mail[:subject],
           :user_id      => User.find(User.first).id,
-          :queue        => 'new',
+          :queue        => 'NEW',
           :permalink    => nil,
           :body         => mail[:body],
           :due_date     => nil,
