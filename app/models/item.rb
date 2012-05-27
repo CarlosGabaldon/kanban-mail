@@ -10,14 +10,14 @@ class Item < ActiveRecord::Base
       ['NEW', 'ACTION', 'HOLD', 'DONE']
     end
     
-    def load_sources klass = ::Gmail::Client
-      account = {user_name: 'cgabaldon',
-                 password: ''}
+    def load_sources user, klass = ::Gmail::Client
+      account = user.accounts.find_by_account_type('gmail')
+      
       klass.fetch account do |mail|
         
         create_params = {
           :subject      => mail[:subject],
-          :user_id      => User.find(User.first).id,
+          :user_id      => user.id,
           :queue        => 'NEW',
           :permalink    => nil,
           :body         => mail[:body],

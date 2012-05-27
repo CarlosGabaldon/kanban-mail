@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
+  before_filter :get_user
   respond_to :html, :js
   
   def index
-    @user = User.find(User.first)
     @new_items = @user.items.where({:queue => "NEW"}).all
     @action_items = @user.items.where({:queue => "ACTION"}).all
     @hold_items = @user.items.where({:queue => "HOLD"}).all
@@ -11,7 +11,6 @@ class ItemsController < ApplicationController
   end
   
   def show
-    @user = User.find(User.first)
     @item = @user.items.find(params[:id])
     @item_queues = Item.queues
     respond_with(@item, @item_queues)
@@ -21,5 +20,15 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.update_attributes(params[:item])
     respond_with(@item, :location => items_url)
+  end
+  
+  def load
+    Item.load_sources @user
+    redirect_to items_url
+  end
+  
+  private
+  def get_user
+    @user = User.find(User.first)
   end
 end

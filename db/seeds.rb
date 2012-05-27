@@ -8,6 +8,11 @@
 
 
 user = User.create(:email => 'elephant@jungle.com')
+account = Account.create account_type:  'gmail',
+                         user_name:     'cgabaldon',
+                         password:      ''
+user.accounts << account
+user.save
 
 weekly_status = Item.new(:permalink => "weekly-status-report-2012-05-15",
                          :subject => "Weekly Status Report",
