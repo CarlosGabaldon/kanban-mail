@@ -34,7 +34,7 @@ module Gmail
           item[:cc] = (mail.cc || []).join(',')
           item[:bcc] = (mail.bcc || []).join(',')
           item[:subject] = mail.subject.to_s
-          item[:body] = mail.body.to_s
+          item[:body] = mail.body.to_s.force_encoding('UTF-8')
         
           yield(item) if block_given?
         

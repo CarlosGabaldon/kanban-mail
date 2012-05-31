@@ -10,27 +10,38 @@ class Item < ActiveRecord::Base
       ['NEW', 'ACTION', 'HOLD', 'DONE']
     end
     
-    def load_sources user, klass = ::Gmail::Client
-      account = user.accounts.find_by_account_type('gmail')
+    def load_sources user
       
-      klass.fetch account do |mail|
+      user.accounts.each do |account|
+            
+        # Each account source lib should have the same fetch interface 
+        begin
+          account_module = account.account_type.capitalize
+          source = Kernel.const_get(account_module).const_get('Client')
+        rescue
+          next
+        end
         
-        create_params = {
-          :subject      => mail[:subject],
-          :user_id      => user.id,
-          :queue        => 'NEW',
-          :permalink    => nil,
-          :body         => mail[:body],
-          :due_date     => nil,
-          :sent         => mail[:sent],
-          :from         => mail[:from],
-          :to           => mail[:to],
-          :cc           => mail[:cc],
-          :bcc          => mail[:bcc]
-        }
-        create create_params
-        
+        source.fetch account do |item|
+
+          create_params = {
+            :subject      => item[:subject],
+            :user_id      => user.id,
+            :queue        => 'NEW',
+            :permalink    => nil,
+            :body         => item[:body],
+            :due_date     => nil,
+            :sent         => item[:sent],
+            :from         => item[:from],
+            :to           => item[:to],
+            :cc           => item[:cc],
+            :bcc          => item[:bcc]
+          }
+          create create_params
+
+        end
       end
+  
     end
     
   end

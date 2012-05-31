@@ -1,4 +1,5 @@
 #primary
+  %input{:id => "email_count", :type => "hidden", :value => "#{@new_items.count}"}
   %h2 New (#{@new_items.count})
   %ol
     = render(@new_items)

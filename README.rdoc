@@ -99,6 +99,7 @@
     +  gem 'rspec-rails'
     +  gem 'factory_girl'
     +end
+  $ bundle install
   $ rails generate cucumber:install
   $ git add .
   $ git commit -m "Added Cucumber"
