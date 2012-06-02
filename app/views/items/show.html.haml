@@ -1,5 +1,5 @@
 #content
-  %h1 #{@item.subject}
+  %h1= @item.display_title
   = link_to "<< Back", items_path 
   = form_for @item do |f|
     = f.label(:queue, 'Move to:')
@@ -7,5 +7,5 @@
     = f.label(:due_date, 'Due on:')
     = f.date_select(:due_date, :use_month_numbers => true)
     = f.submit("Move")
-  %p= @item.body
+  %p= @item.body.html_safe
   

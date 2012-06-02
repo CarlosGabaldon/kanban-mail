@@ -2,6 +2,7 @@ require 'date'
 Given /^the user has an item$/ do
   @user = User.create(:email => 'example@example.com')
   i = Item.new :permalink => 'amazon_com-12-05-04',
+               :source => 'gmail',
                :subject => 'Amazon.com', 
                :queue => 'NEW',
                :body => 'Welcome to Amazon.com',

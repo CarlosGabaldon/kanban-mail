@@ -19,11 +19,13 @@ Given /^the user has a github account$/ do
                            
 end
 
-When /^they visit the index page$/ do
+When /^they select get items from the menu$/ do
   visit(load_items_path)
 end
 
 Then /^they will see a list of items in the NEW queue$/ do
   # revisit this approach for determing if we have new emails..
-  page.find('#email_count').value.to_i.should be > 0
+  page.find('#new_item_count').value.to_i.should be > 0
+  #puts page.html
+  #pending
 end
