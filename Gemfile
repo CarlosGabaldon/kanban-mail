@@ -24,10 +24,10 @@ end
 
 gem 'jquery-rails'
 
-group :production do
-  gem "pg"
-  gem 'activerecord-postgresql-adapter'
-end
+
+gem "pg"
+gem 'activerecord-postgresql-adapter'
+
 
 
 # To use ActiveModel has_secure_password
