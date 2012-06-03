@@ -11,6 +11,28 @@ class Item < ActiveRecord::Base
     "#{self.source.upcase}:#{self.queue}:#{self.subject}"
   end
   
+  def due_in_days
+    unless self.due_date.nil?
+      due_by = Date.parse(due_date.strftime("%Y-%m-%d"))
+      due = due_by.mjd - Date.today.mjd # Use Modified Julian Day Number
+
+      if due > 1
+        "Due in #{due} days."
+      elsif due == 1
+        "Due in #{due} day."
+      elsif due == 0
+        "Due today!"
+      elsif due == -1
+        "Overdue by #{due/-1} day!"
+      else due < 0
+        "Overdue by #{due/-1} days!"
+      end
+
+    else
+      "Not Scheduled"
+    end
+  end
+  
   class << self
     def queues
       ['NEW', 'ACTION', 'HOLD', 'DONE']
@@ -49,6 +71,5 @@ class Item < ActiveRecord::Base
       end
   
     end
-    
   end
 end

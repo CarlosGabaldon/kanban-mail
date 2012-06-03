@@ -3,10 +3,11 @@ class ItemsController < ApplicationController
   respond_to :html, :js
   
   def index
-    @new_items = @user.items.where({:queue => "NEW"}).all
-    @action_items = @user.items.where({:queue => "ACTION"}).all
-    @hold_items = @user.items.where({:queue => "HOLD"}).all
-    @done_items = @user.items.where({:queue => "DONE"}).all
+    @new_items = @user.items.where({:queue => "NEW"}).order("sent DESC").all
+    @action_items = @user.items.where({:queue => "ACTION"}).order("due_date ASC").all
+    @hold_items = @user.items.where({:queue => "HOLD"}).order("due_date DESC").all
+    @done_items = @user.items.where({:queue => "DONE"}).order("sent DESC").all
+
     respond_with(@new_items, @action_items, @hold_items, @done_items)
   end
   

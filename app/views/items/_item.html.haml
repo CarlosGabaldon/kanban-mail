@@ -1,2 +1,4 @@
 %li 
-  =link_to item.display_title, item_path(item), :method => :get
+  .kanban-card
+    =link_to item.display_title, item_path(item), :method => :get
+    %h3=item.due_in_days
