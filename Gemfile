@@ -25,6 +25,7 @@ end
 gem 'jquery-rails'
 
 group :production do
+  gem "pg"
   gem 'activerecord-postgresql-adapter'
 end
 
