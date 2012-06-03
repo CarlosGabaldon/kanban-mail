@@ -10,13 +10,13 @@
 user = User.create(:email => 'elephant@jungle.com')
 gmail_account = Account.create account_type:  'gmail',
                          user_name:     'cgabaldon',
-                         password:      ''
+                         password:      'Fixedgearbike1228'
 user.accounts << gmail_account
 user.save
 
 github_account = Account.create account_type: 'github',
                         user_name:    'carlosgabaldon',
-                        password:     ''
+                        password:     'gaba1228'
 user.accounts << github_account
 user.save
 
