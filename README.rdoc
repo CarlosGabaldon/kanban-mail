@@ -76,7 +76,9 @@
 
 === PROD
   
+  $ heroku create
   $ git push heroku master
+  $ heroku apps:rename kanbanmail
   $ heroku rake db:migrate
   $ heroku domains:add www.kanbanmail.com 
   $ open https://manage.www.namecheap.com/myaccount/index.asp
