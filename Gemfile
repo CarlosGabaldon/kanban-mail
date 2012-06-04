@@ -27,7 +27,8 @@ gem 'jquery-rails'
 # needed for Heroku, since postgres is used in PROD
 gem "pg"
 gem 'activerecord-postgresql-adapter'
-# need for Heroku, since OS X comes with JavaScriptCore
+# need for Heroku, since OS X comes with JavaScriptCore, 
+# https://github.com/sstephenson/execjs/issues/39
 gem 'therubyracer'
 
 

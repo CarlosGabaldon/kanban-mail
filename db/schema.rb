@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(:version => 20120602175046) do
     t.datetime "updated_at", :null => false
     t.string   "queue"
     t.string   "permalink"
-    t.string   "body"
+    t.text     "body"
     t.datetime "due_date"
     t.datetime "sent"
     t.string   "from"
