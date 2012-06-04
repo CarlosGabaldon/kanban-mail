@@ -24,9 +24,11 @@ end
 
 gem 'jquery-rails'
 
-
+# needed for Heroku, since postgres is used in PROD
 gem "pg"
 gem 'activerecord-postgresql-adapter'
+# need for Heroku, since OS X comes with JavaScriptCore
+gem 'therubyracer'
 
 
 
