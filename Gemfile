@@ -7,6 +7,7 @@ gem 'formtastic'
 gem 'heroku'
 gem 'haml'
 gem "mail"
+gem "json"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

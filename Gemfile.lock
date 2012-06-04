@@ -194,6 +194,7 @@ DEPENDENCIES
   haml
   heroku
   jquery-rails
+  json
   mail
   pg
   rails (= 3.2.3)
