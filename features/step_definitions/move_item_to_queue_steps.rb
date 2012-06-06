@@ -14,3 +14,10 @@ Then /^they should be redirected to the item list page to see item moved to acti
   item = @user.items.find_by_permalink('amazon_com-12-05-04')
   page.should have_content(item.subject)
 end
+
+Then /^they should be redirected to the item list page to see the item moved to the done queue with today's date$/ do
+  Item.instance_eval {@date_class = QueryHelpers::MockDate}
+  item = @user.items.find_by_permalink('amazon_com-12-05-04')
+  content = "Completed on #{QueryHelpers::MockDate.today.to_s}"
+  page.should have_content(content)
+end

@@ -17,7 +17,7 @@ Given /^the user has an item$/ do
 
 end
 
-When /^they vist the item list page$/ do 
+When /^they visit the item list page$/ do 
   visit(items_path)
 end
 

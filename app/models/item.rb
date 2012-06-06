@@ -15,7 +15,11 @@ class Item < ActiveRecord::Base
     unless self.due_date.nil?
       due_by = Date.parse(due_date.strftime("%Y-%m-%d"))
       due = due_by.mjd - Date.today.mjd # Use Modified Julian Day Number
-
+      
+      if self.queue == 'DONE'
+        return "Completed on #{Item.date_class.today.to_s}"
+      end
+      
       if due > 1
         "Due in #{due} days."
       elsif due == 1
@@ -34,6 +38,10 @@ class Item < ActiveRecord::Base
   end
   
   class << self
+    def date_class
+      @date_class || Date
+    end
+    
     def queues
       ['NEW', 'ACTION', 'HOLD', 'DONE']
     end
@@ -69,7 +77,7 @@ class Item < ActiveRecord::Base
 
         end
       end
-  
+      
     end
   end
 end
