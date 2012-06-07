@@ -4,21 +4,26 @@ class Item < ActiveRecord::Base
   attr_accessible :subject, :user_id, :queue, 
                   :permalink, :body, :due_date,
                   :sent, :from, :to, :cc, :bcc,
-                  :source
+                  :source, :completed_date
   belongs_to :user
   
   def display_title
     "#{self.source.upcase}:#{self.queue}:#{self.subject}"
   end
   
+  def mark_completed
+    self.completed_date = Item.date_class.today 
+  end
+  
+  
   def due_in_days
+    if self.queue == "DONE"
+      return "Completed on #{self.completed_date.strftime("%Y-%m-%d")}"
+    end
+    
     unless self.due_date.nil?
       due_by = Date.parse(due_date.strftime("%Y-%m-%d"))
       due = due_by.mjd - Date.today.mjd # Use Modified Julian Day Number
-      
-      if self.queue == 'DONE'
-        return "Completed on #{Item.date_class.today.to_s}"
-      end
       
       if due > 1
         "Due in #{due} days."

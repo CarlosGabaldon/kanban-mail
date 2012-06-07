@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120602175046) do
+ActiveRecord::Schema.define(:version => 20120607025814) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "user_id"
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(:version => 20120602175046) do
   create_table "items", :force => true do |t|
     t.integer  "user_id"
     t.string   "subject"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "queue"
     t.string   "permalink"
     t.text     "body"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20120602175046) do
     t.string   "cc"
     t.string   "bcc"
     t.string   "source"
+    t.datetime "completed_date"
   end
 
   create_table "users", :force => true do |t|

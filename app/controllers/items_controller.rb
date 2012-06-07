@@ -19,6 +19,7 @@ class ItemsController < ApplicationController
   
   def update
     @item = Item.find(params[:id])
+    @item.mark_completed if params[:item][:queue] == "DONE"
     @item.update_attributes(params[:item])
     respond_with(@item, :location => items_url)
   end
