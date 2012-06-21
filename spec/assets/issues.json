@@ -1,0 +1,68 @@
+[
+  {
+    "html_url": "https://github.com/CarlosGabaldon/fossa-old/issues/4",
+    "created_at": "2012-04-20T23:37:07Z",
+    "comments": 0,
+    "state": "open",
+    "user": {
+      "login": "CarlosGabaldon",
+      "url": "https://api.github.com/users/CarlosGabaldon",
+      "avatar_url": "https://secure.gravatar.com/avatar/9f22a8f13769b4ad434bbf5694d9b718?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png",
+      "id": 6360,
+      "gravatar_id": "9f22a8f13769b4ad434bbf5694d9b718"
+    },
+    "closed_at": null,
+    "number": 4,
+    "pull_request": {
+      "diff_url": null,
+      "html_url": null,
+      "patch_url": null
+    },
+    "updated_at": "2012-04-20T23:37:07Z",
+    "url": "https://api.github.com/repos/CarlosGabaldon/fossa-old/issues/4",
+    "milestone": null,
+    "body": "Wrap a form around this code in \r\n\r\nhttps://github.com/CarlosGabaldon/fossa/blob/master/app/views/features/_feature.html.erb#L11\r\n\r\n```Ruby\r\n<%= form_for feature, \r\n         :as => :feature, \r\n         :remote => true,\r\n         :url => project_feature_path(@project, feature),   \r\n         :loading => 'App.disableProjectForm()',\r\n         :complete => 'App.enableProjectForm()',\r\n         :html => {:id => 'feature-form', :method => :put } do |f| %>\r\n               <%= f.text_field 'name', :size => 60 %>\r\n               <%= f.text_area 'description',  :size => \"60x10\" %>\r\n               <%= select :feature, :priority_id, @priorities.collect {|p| [ p.name, p.id ] } %>\r\n\r\n               <%= f.check_box_tag \"feature[completed]\", feature.completed %>\r\n\r\n               <%= submit_tag 'Complete' %> \r\n               <%= image_tag 'indicator.gif', :id => 'form-indicator', :style => 'display:none;' %>\r\n             <% end %>\r\n\r\n```",
+    "assignee": null,
+    "labels": [
+
+    ],
+    "title": "Enable completing features",
+    "id": 4220007
+  },
+  {
+    "html_url": "https://github.com/CarlosGabaldon/fossa-old/issues/2",
+    "created_at": "2012-04-20T17:38:31Z",
+    "comments": 0,
+    "state": "open",
+    "user": {
+      "login": "CarlosGabaldon",
+      "url": "https://api.github.com/users/CarlosGabaldon",
+      "avatar_url": "https://secure.gravatar.com/avatar/9f22a8f13769b4ad434bbf5694d9b718?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png",
+      "id": 6360,
+      "gravatar_id": "9f22a8f13769b4ad434bbf5694d9b718"
+    },
+    "closed_at": null,
+    "number": 2,
+    "pull_request": {
+      "diff_url": null,
+      "html_url": null,
+      "patch_url": null
+    },
+    "updated_at": "2012-04-20T17:38:35Z",
+    "url": "https://api.github.com/repos/CarlosGabaldon/fossa-old/issues/2",
+    "milestone": null,
+    "body": "Add a method to mark a task as completed.",
+    "assignee": {
+      "login": "CarlosGabaldon",
+      "url": "https://api.github.com/users/CarlosGabaldon",
+      "avatar_url": "https://secure.gravatar.com/avatar/9f22a8f13769b4ad434bbf5694d9b718?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png",
+      "id": 6360,
+      "gravatar_id": "9f22a8f13769b4ad434bbf5694d9b718"
+    },
+    "labels": [
+
+    ],
+    "title": "Need a method to mark a task as completed",
+    "id": 4214951
+  }
+]

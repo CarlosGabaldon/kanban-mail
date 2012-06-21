@@ -15,12 +15,15 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'rspec-rails', :group => [:development, :test]
+
 # Specification by Example: https://github.com/cucumber/cucumber-rails
 group :test do
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'rspec-rails'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
+  gem 'email_spec'
 end
 
 gem 'jquery-rails'

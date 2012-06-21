@@ -9,7 +9,7 @@ Given /^the user has a gmail account$/ do
 end
 
 Given /^the user has a github account$/ do
-  @user = User.create email: 'example@example.com' 
+  @user = User.create email: 'example@example.com'   
   
   account = Account.create account_type: 'github',
                            user_name:    'carlosgabaldon',
